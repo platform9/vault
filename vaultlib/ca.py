@@ -2,7 +2,7 @@
 import logging
 
 from copy import deepcopy
-from vault.base import VaultBase
+from vaultlib.base import VaultBase
 from requests.exceptions import HTTPError
 
 LOG = logging.getLogger(__name__)

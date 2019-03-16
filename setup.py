@@ -1,10 +1,10 @@
 # Copyright (c) 2019 Platform9 systems. All rights reserved
 
 from setuptools import setup, find_packages
-from vault import __version__
+from vaultlib import __version__
 
 setup(
-    name='vault',
+    name='vaultlib',
     version=__version__,
     description='Client library for accessing Vault.',
     author='',

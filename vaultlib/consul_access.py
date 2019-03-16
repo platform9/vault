@@ -2,7 +2,7 @@
 import logging
 import requests
 from base64 import b64encode, b64decode
-from vault.base import VaultBase
+from vaultlib.base import VaultBase
 
 LOG = logging.getLogger(__name__)
 
