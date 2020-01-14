@@ -12,6 +12,11 @@ setup(
     install_requires=[
         'requests'
     ],
+    tests_require=[
+        'mock',
+        'pylint',
+    ],
+    test_suite='tests.test_ca',
     scripts=[],
     zip_safe=False,
     packages=find_packages()
