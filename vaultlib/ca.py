@@ -103,14 +103,18 @@ class VaultCA(VaultBase):
                  policy_name, self._common_name, role_name)
         return self.rq('PUT', 'sys/policy/%s' % policy_name, body)
 
-    def create_token(self, policy_name):
+    def create_token(self, policy_name, token_role=''):
         """
-        Create a token for the provided access policy.
+        Create a token for the provided access policy, and role if specified.
         """
-        LOG.info('Creating a new vault access token for with policy \'%s\'',
-                 policy_name)
-        return self.rq('POST', 'auth/token/create',
-                       {'policies': [policy_name]})
+        LOG.info('Creating a new vault access token for with policy \'%s\' and role \'%s\'',
+                 policy_name, token_role)
+
+        create_path = 'auth/token/create'
+        if token_role:
+            create_path = create_path + '/' + token_role
+
+        return self.rq('POST', create_path, {'policies': [policy_name]})
 
     def sign_csr(self, role, csr_pem, common_name=None, ip_sans=None,
                  alt_names=None, ttl='730h'):
